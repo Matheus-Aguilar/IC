@@ -30,7 +30,8 @@ int main(int argc, char* argv[]) {
     
     sql = sql + "CREATE TABLE " + name + " (id serial PRIMARY KEY, aresta geometry(LineString) NOT NULL);";
 
-    sql = sql + "CREATE INDEX " + name + "_index ON " + name + " USING GIST(aresta);";
+    if(argv[1][0] == '1')
+        sql = sql + "CREATE INDEX " + name + "_index ON " + name + " USING GIST(aresta);";
 
 
     W.exec(sql); //Executando o SQL
