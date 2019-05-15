@@ -28,11 +28,10 @@ int main(int argc, char* argv[]) {
     string name;
     cin >> name;
     
-    sql = sql + "CREATE TABLE " + name + " (id serial PRIMARY KEY, aresta geometry(LineString) NOT NULL);";
+    sql = sql + "CREATE TABLE " + name + " (id serial PRIMARY KEY, aresta geometry(LineString) NOT NULL, CONSTRAINT  enforce_srid CHECK (st_srid(aresta) = 4269));";
 
     if(argv[1][0] == '1')
         sql = sql + "CREATE INDEX " + name + "_index ON " + name + " USING GIST(aresta);";
-
 
     W.exec(sql); //Executando o SQL
 
@@ -45,7 +44,7 @@ int main(int argc, char* argv[]) {
     for(int i = 0; i < n; i++){
         string id, px, py, qx, qy;
         cin >> id >> px >> py >> qx >> qy;
-        sql = sql + "INSERT INTO " + name + " VALUES(" + id + ", 'LINESTRING(" + px + " " + py + ", " + qx + " " + qy + ")');";
+        sql = sql + "INSERT INTO " + name + " VALUES(" + id + ", ST_GEOMFROMTEXT('LINESTRING(" + px + " " + py + ", " + qx + " " + qy + ")', 4269));";
     }
 
     //Executando e comitando o SQL

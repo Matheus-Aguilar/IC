@@ -17,6 +17,8 @@ int main(int argc, char* argv[]) {
     cout << argv[1] << "\n";
     cout << n << "\n";
     for(int i = 0; i < n; i++){
-        cout << i << " " << frand(100.0) << " " << frand(100.0) << " " << frand(100.0) << " " << frand(100.0) << "\n"; 
+        double a = frand(100.0);
+        double b = frand(100.0);
+        cout << i << " " << a << " " << b << " " << a + frand(30.0) << " " << b + frand(30.0) << "\n"; 
     }    
 }
