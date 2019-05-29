@@ -25,8 +25,7 @@ int main(int argc, char* argv[]) {
     string sql = "";
 
     /*Criando a tabela e o índice geométrico*/
-    string name;
-    cin >> name;
+    string name = argv[2];
     
     sql = sql + "CREATE TABLE " + name + " (id serial PRIMARY KEY, aresta geometry(LineString) NOT NULL, CONSTRAINT  enforce_srid CHECK (st_srid(aresta) = 4269));";
 
@@ -38,17 +37,35 @@ int main(int argc, char* argv[]) {
     int n;
     cin >> n;
 
+    vector<int>pid;
+    vector<string>px;
+    vector<string>py;
+
+    pid.resize(n);
+    px.resize(n);
+    py.resize(n);
+
+    for(int i = 0; i < n; i++){
+        cin >> pid[i] >> px[i] >> py[i]; 
+    }
+
+    cin >> n;
+
     sql = "";
+
+    cerr << n << "\n";
 
     //Inserindo as arestas
     for(int i = 0; i < n; i++){
-        string id, px, py, qx, qy;
-        cin >> id >> px >> py >> qx >> qy;
-        sql = sql + "INSERT INTO " + name + " VALUES(" + id + ", ST_GEOMFROMTEXT('LINESTRING(" + px + " " + py + ", " + qx + " " + qy + ")', 4269));";
+        string id;
+        int pid0, pid1, aux;
+        cin >> id >> pid0 >> pid1 >> aux >> aux;
+        sql = "INSERT INTO " + name + " VALUES(" + id + ", ST_GEOMFROMTEXT('LINESTRING(" + px[pid[pid0]] + " " + py[pid[pid0]] + ", " + px[pid[pid1]] + " " + py[pid[pid1]] + ")', 4269));";
+        W.exec(sql);
+        cerr << i << "\n";
     }
 
     //Executando e comitando o SQL
-    W.exec(sql);
     W.commit();
 
     /*Encerrando a conexão*/
