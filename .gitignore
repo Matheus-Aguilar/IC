@@ -1,0 +1,4 @@
+datasets/*
+CGAL/*.txt
+converter
+**/a.out
