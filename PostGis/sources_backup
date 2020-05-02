@@ -1,0 +1,13 @@
+
+# deb http://apt.postgresql.org/pub/repos/apt xenial-pgdg main
+deb http://debian.cgal.org stable main
+deb-src http://debian.cgal.org stable main
+deb http://debian.cgal.org stable main
+deb-src http://debian.cgal.org stable main
+deb http://debian.cgal.org stable main
+deb-src http://debian.cgal.org stable main
+deb http://debian.cgal.org stable main
+deb-src http://debian.cgal.org stable main
+deb http://debian.cgal.org stable main
+deb-src http://debian.cgal.org stable main
+deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main
