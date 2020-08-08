@@ -6,9 +6,6 @@ PostGis/SFCGAL-1.0/*
 PostGis/Instaladores/*
 matheusaguilar/*
 PostGis/sigspatial2019/*
-PostGis/Segments vs Triangles/geological_shapes.in
-PostGis/Segments vs Triangles/triangles.in
-PostGis/Segments vs Triangles/*.sql
 k40.sh
 Documentos Funarbic/*
 sources_backup
