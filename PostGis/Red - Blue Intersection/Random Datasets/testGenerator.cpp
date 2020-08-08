@@ -1,6 +1,3 @@
-//O código a seguir recebe o nome de duas tabelas
-//de aretas e retorna quais são as interseções
-//entre elas
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
